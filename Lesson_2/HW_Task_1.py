@@ -4,12 +4,7 @@
 # - 6782 -> 23
 # - 0.67 -> 13
 # - 198.45 -> 27
-# for(int max = 1; number > max; max= max *10){
 
-#     ost = n % 10;
-#     n= n / 10;
-#     sum = sum + ost;
-# }
 
 
 a = (input('Введите число: '))
@@ -17,9 +12,9 @@ b = len(a)
 a = float(a)
 sum = 0
 a = a*(10**b)
-# x = a.split(".")
-# a = int(x[0]) # целая часть
-# b = int(x[1]) # дробная часть
+a=str(a)
+b=len(a)
+a=float(a)
 for i in range(b+1):
     ost = 0
     ost = int(a % 10)
@@ -27,3 +22,5 @@ for i in range(b+1):
     sum = sum + ost
     
 print("Сумма равна:",sum)
+
+# print(sum(map(int, list(input("Введите дробное число: ").replace(".", "")))))

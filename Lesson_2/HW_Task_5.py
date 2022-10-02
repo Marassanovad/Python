@@ -7,17 +7,20 @@
 
 #не доделано!!!
 
-import random
+from random import sample
 
 a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-ranNum=0
-b = [0 for i in range(10)]
-
-for i in range(len(b)):
-    ranNum=a[random.randint(0, 9)]
-    if ranNum not in b:
-        b[i]=ranNum
-    
-# random.shuffle(b)
+# ranNum=0
 print(a)
-print(b)
+print(sample(a,10))
+
+# b = [0 for i in range(10)]
+
+# for i in range(len(b)):
+#     ranNum=a[random.randint(0, 9)]
+#     if ranNum not in b:
+#         b[i]=ranNum
+    
+# # random.shuffle(b)
+# print(a)
+# print(b)
