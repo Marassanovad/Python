@@ -30,6 +30,7 @@ if  lines != lines2:
 else:
     first_filename = "poly.txt"
     second_filename = "poly2.txt"
+    third_filename = "mergepoly.txt"
 
 
     with open(first_filename, 'r') as file:
@@ -38,7 +39,8 @@ else:
     with open(second_filename, 'r') as file:
         second_file_content = file.read() 
 
-    print(first_file_content and second_file_content)
+    with open(third_filename, 'w') as file:
+        file.write(first_file_content and second_file_content)
 
 
 
