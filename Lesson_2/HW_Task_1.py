@@ -23,4 +23,15 @@ for i in range(b+1):
     
 print("Сумма равна:",sum)
 
+# Second way
+
+n = float(input('Введите вещественное число: '))
+sum = 0 
+while not n.is_integer(): 
+    n = n*10 
+    while n != 0: 
+        sum += n % 10 
+        n //= 10
+print(sum)
+
 # print(sum(map(int, list(input("Введите дробное число: ").replace(".", "")))))
