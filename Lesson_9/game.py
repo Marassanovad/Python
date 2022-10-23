@@ -9,8 +9,8 @@ from telegram.ext import (
     ConversationHandler,
 )
 
-# Определяем константы этапов разговора
-fld = list(range(1, 10))
+
+map = list(range(1, 10))
 x = chr(10060)
 o = chr(11093)
 count = 9
@@ -37,11 +37,11 @@ def check_win(field):
 # функция обратного вызова точки входа в разговор
 def start(update, _):
     global fld, player, count
-    fld = list(range(1, 10))
+    map = list(range(1, 10))
     count = 9
     player = x
     update.message.reply_text("Привет, Сыграешь в крестики-нолики?")
-    update.message.reply_text(show_map(fld))
+    update.message.reply_text(show_map(map))
     update.message.reply_text(f'Первый {chr(10060)}')
     return CHOICE
 
@@ -50,13 +50,13 @@ def choice(update, _):
     global player, count
     move = update.message.text
     move = int(move)
-    if move not in fld:
+    if move not in map:
         update.message.reply_text(f"Неправильный ввод{chr(9940)}\nПопробуй снова")
     else:
-        fld.insert(fld.index(move), player)
-        fld.remove(move)
-        update.message.reply_text(show_map(fld))
-        if check_win(fld):
+        map.insert(map.index(move), player)
+        map.remove(move)
+        update.message.reply_text(show_map(map))
+        if check_win(map):
             update.message.reply_text(f"{player} - Победитель!!!{chr(127942)}{chr(127881)}")
             return ConversationHandler.END
         player = o if player == x else x
